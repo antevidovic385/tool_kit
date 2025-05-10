@@ -4,10 +4,12 @@
 <!DOCTYPE html>
 <html lang="<?php echo $language; ?>">
     <head>
-        <title><?php echo Translate_helper::translate($title); ?></title>
-
+        <title>
+            <?php echo Translate_helper::translate($title); ?>
+        </title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <?php echo csrf_meta() ?>
 
@@ -30,5 +32,19 @@
         ?>
 
     </head>
-    <body>
-        <div id="<?php echo $mainMsgContainerId; ?>"></div>
+    <?php if ($area === ADMIN_AREA) { ?>
+        <body
+            data-theme="default"
+            data-layout="fluid"
+            data-sidebar-position="left"
+            data-sidebar-behavior="sticky"
+            >
+            <div class="wrapper">
+                <div id="<?php echo $mainMsgContainerId; ?>"></div>
+                <?php
+                    include_once APPPATH . '/Views/includes/admin/sidebar.php';
+                    include_once APPPATH . '/Views/includes/admin/navigation.php';
+                ?>
+    <?php } else { ?>
+        <body>
+    <?php } ?>

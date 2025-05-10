@@ -1,3 +1,8 @@
+        <?php
+            if ($area === ADMIN_AREA) {
+                include_once APPPATH . 'Views/includes/admin/footer.php';
+            }
+        ?>
         <script>
             const APP_GLOBALS = (function(){
                 let globals = {
