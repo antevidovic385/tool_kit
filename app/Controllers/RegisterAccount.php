@@ -14,6 +14,7 @@ class RegisterAccount extends BaseController
     private string $area = PUBLIC_AREA;
     private string $title = 'Register account';
     private string $view = 'registerAccount/registerAccount';
+    private string $assestFile = 'registerAccount/registerAccount';
 
     protected function getArea(): string
     {
@@ -28,6 +29,11 @@ class RegisterAccount extends BaseController
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index(): string

@@ -15,6 +15,7 @@ class Login extends BaseController
     private string $area = PUBLIC_AREA;
     private string $title = 'LOGIN';
     private string $view = 'login/login';
+    private string $assestFile = 'login/login';
 
     protected function getArea(): string
     {
@@ -29,6 +30,11 @@ class Login extends BaseController
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index(): string|object

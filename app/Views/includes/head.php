@@ -16,11 +16,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
-        <link rel="stylesheet" href="<?php echo $baseUrl . 'assets/css/main.css'; ?>">
-        <link rel="stylesheet" href="<?php echo $baseUrl . 'assets/css/custom.css'; ?>">
+        <link rel="stylesheet" href="<?php echo $baseUrl . 'asset/css/main.css'; ?>">
+        <link rel="stylesheet" href="<?php echo $baseUrl . 'asset/css/custom.css'; ?>">
 
         <?php
-            $viewCss = 'assets/css/' . $view . '.css';
+            $viewCss = 'asset/css/' . $assestFile . '.css';
             $viewCssFullPath = FCPATH . $viewCss;
 
             if (file_exists($viewCssFullPath)) {

@@ -9,6 +9,7 @@ class Logout extends BaseController
     private string $area = ADMIN_AREA;
     private string $title = '';
     private string $view = '';
+    private string $assestFile = '';
 
     protected function getArea(): string
     {
@@ -23,6 +24,11 @@ class Logout extends BaseController
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index(): string|object

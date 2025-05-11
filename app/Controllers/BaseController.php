@@ -32,6 +32,7 @@ abstract class BaseController extends Controller
     abstract protected function getArea(): string;
     abstract protected function getTitle(): string;
     abstract protected function getView(): string;
+    abstract protected function getAssestFile(): string;
 
     /**
      * Instance of the main Request object.
@@ -121,6 +122,7 @@ abstract class BaseController extends Controller
         $data['area'] = $this->getArea();
         $data['title'] = $this->getArea();
         $data['baseUrl'] = base_url();
+        $data['assestFile'] = $this->getAssestFile();
         $data['csrfHeader'] = csrf_header();
         $data['sendAjaxRequestClass'] = 'sendAjaxRequestClass';
         $data['formMsgErrorsClass'] = 'formMsgErrorsClass';

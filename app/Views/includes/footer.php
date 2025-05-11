@@ -20,14 +20,14 @@
             }());
         </script>
 
-        <script src="<?php echo $baseUrl . 'assets/js/main.js?v=1_0_0'; ?>"></script>
-        <script src="<?php echo $baseUrl . 'assets/js/utility.js?v=1_0_0'; ?>"></script>
-        <script src="<?php echo $baseUrl . 'assets/js/validate.js?v=1_0_0'; ?>"></script>
-        <script src="<?php echo $baseUrl . 'assets/js/ajax.js?v=1_0_0'; ?>"></script>
-        <script src="<?php echo $baseUrl . 'assets/js/form.js?v=1_0_0'; ?>"></script>
+        <script src="<?php echo $baseUrl . 'asset/js/main.js?v=1_0_0'; ?>"></script>
+        <script src="<?php echo $baseUrl . 'asset/js/utility.js?v=1_0_0'; ?>"></script>
+        <script src="<?php echo $baseUrl . 'asset/js/validate.js?v=1_0_0'; ?>"></script>
+        <script src="<?php echo $baseUrl . 'asset/js/ajax.js?v=1_0_0'; ?>"></script>
+        <script src="<?php echo $baseUrl . 'asset/js/form.js?v=1_0_0'; ?>"></script>
 
         <?php
-            $viewJsFile = 'assets/js/' . $view . '.js';
+            $viewJsFile = 'asset/js/' . $assestFile . '.js';
             $viewJsFileFullPath = FCPATH . $viewJsFile;
 
             if (file_exists($viewJsFileFullPath)) {

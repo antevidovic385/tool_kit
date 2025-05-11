@@ -11,6 +11,7 @@ class Dashboard extends BaseController
     private string $area = ADMIN_AREA;
     private string $title = 'Dashboard';
     private string $view = 'dashboard/dashboard';
+    private string $assestFile = 'dashboard/dashboard';
 
     protected function getArea(): string
     {
@@ -25,6 +26,11 @@ class Dashboard extends BaseController
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index(): string

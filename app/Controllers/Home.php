@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Helpers\Translate_helper;
-use App\Helpers\Customvalues_helper;
 
 class Home extends BaseController
 {
@@ -11,6 +9,7 @@ class Home extends BaseController
     private string $area = PUBLIC_AREA;
     private string $title = 'Home pahe account';
     private string $view = 'home/home';
+    private string $assestFile = 'home/home';
 
     protected function getArea(): string
     {
@@ -19,12 +18,17 @@ class Home extends BaseController
 
     protected function getTitle(): string
     {
-        return Translate_helper::translate($this->title);
+        return  $this->title;
     }
 
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index(): string

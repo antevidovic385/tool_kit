@@ -15,6 +15,7 @@ class ThankYouPage extends BaseController
     private string $area = PUBLIC_AREA;
     private string $title = 'THANK YOU FOR REGISTRATION';
     private string $view = 'thankYouPage/thankYouPage';
+    private string $assestFile = 'thankYouPage/thankYouPage';
 
     protected function getArea(): string
     {
@@ -29,6 +30,11 @@ class ThankYouPage extends BaseController
     protected function getView(): string
     {
         return $this->view;
+    }
+
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
     }
 
     public function index($jwtKey): string

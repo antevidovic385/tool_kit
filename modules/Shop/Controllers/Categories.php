@@ -10,7 +10,8 @@ class Categories extends BaseController
 
     private string $area = ADMIN_AREA;
     private string $title = 'Categories';
-    private string $view = 'Modules\Shop\categories\categories';
+    private string $view = 'Modules\Shop\Categories\categories';
+    private string $assestFile = 'shop/categories/categories';
 
     protected function getArea(): string
     {
@@ -27,8 +28,14 @@ class Categories extends BaseController
         return $this->view;
     }
 
+    protected function getAssestFile(): string
+    {
+        return $this->assestFile;
+    }
+
     public function index(): string
     {
+
 
         return $this->renderPage();
     }
