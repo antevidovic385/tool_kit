@@ -18,9 +18,17 @@ $routes->get('/thank_you/(:any)', 'ThankYouPage::index/$1');
 $routes->get('/login', 'Login::index');
 $routes->post('/account_login', 'Login::accountLogin');
 
+// reset password
+$routes->get('/reset_password', 'ResetPassword::index');
+$routes->post('/send_reset_password_link', 'ResetPassword::sendResetPasswordLink');
+
+// set new password
+$routes->get('/save_new_password/(:any)', 'SaveNewPassword::index/$1');
+$routes->post('/save_new_password/(:any)', 'SaveNewPassword::saveNewPassword/$1');
+
 // Logout
 $routes->get('/logout', 'Logout::index');
 
 $routes->group('/admin', static function ($routes) {
-    $routes->get('dashboard', 'Admin\Dashboard::index');
+    $routes->get('dashboard', 'Dashboard::index');
 });

@@ -89,7 +89,7 @@
                 $this->table . '.' . Customvalues_helper::$ID_PROPERTY => $this->{Customvalues_helper::$ID_PROPERTY}
             ];
 
-            if ($this->{Customvalues_helper::$ACCOUNT_ID_PROPERTY}) {
+            if (!empty($this->{Customvalues_helper::$ACCOUNT_ID_PROPERTY})) {
                 $where[$this->table . '.' . Customvalues_helper::$ACCOUNT_ID_PROPERTY] = $this->{Customvalues_helper::$ACCOUNT_ID_PROPERTY};
             }
 

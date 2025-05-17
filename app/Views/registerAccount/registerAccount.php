@@ -9,16 +9,16 @@
                 <h1>
                     <?php echo Translate_helper::translate('Register accouunt'); ?>
                 </h1>
-                <div id="submitFormErrors"></div>
+                <div id="<?php echo $mainMsgContainerId; ?>"></div>
                 <form
                     id="registerAccountForm"
                     method="POST"
                     onsubmit="return false"
-                    action="<?php echo $baseUrl; ?>/register_account"
+                    action="<?php echo $baseUrl; ?>register_account"
                     >
                     <div class="mb-3 mt-3">
                         <label for="account" class="form-label">
-                            <?php echo Translate_helper::translate('Account name')?>:
+                            <?php echo Translate_helper::translate('Account name'); ?>:
                         </label>
                         <input
                             type="text"
@@ -70,7 +70,7 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">
-                            <?php echo Translate_helper::translate('email')?>:
+                            <?php echo Translate_helper::translate('Email')?>:
                         </label>
                         <input
                             type="email"
@@ -108,6 +108,11 @@
                         value="<?php echo Translate_helper::translate('Save'); ?>"
                         >
                 </form>
+                <div>
+                    <a href="<?php echo $baseUrl . 'login'; ?>">
+                        <?php echo Translate_helper::translate('Login'); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

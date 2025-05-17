@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
@@ -9,9 +9,9 @@ class Dashboard extends BaseController
 {
 
     private string $area = ADMIN_AREA;
-    private string $title = 'Dashboard';
     private string $view = 'dashboard/dashboard';
     private string $assestFile = 'dashboard/dashboard';
+    private string $title = 'Dashboard';
 
     protected function getArea(): string
     {
@@ -39,4 +39,3 @@ class Dashboard extends BaseController
     }
 
 }
-

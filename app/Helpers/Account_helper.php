@@ -158,7 +158,7 @@
             return $data;
         }
 
-        public static function getAccountLoginData(AccountModel $account): array
+        public static function getAccountDataWithEmail(AccountModel $account): array
         {
             $table = $account->getThisTable();
             $filter = [

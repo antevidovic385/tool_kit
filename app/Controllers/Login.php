@@ -37,7 +37,7 @@ class Login extends BaseController
         return $this->assestFile;
     }
 
-    public function index(): string|object
+    public function index(): string
     {
         return $this->renderPage();
     }
@@ -47,7 +47,7 @@ class Login extends BaseController
         $post = $this->getRequestPost();
         $account = new AccountModel();
         $account->setProperty('email', $post['email']);
-        $data = Account_helper::getAccountLoginData($account);
+        $data = Account_helper::getAccountDataWithEmail($account);
 
         if (
             $data

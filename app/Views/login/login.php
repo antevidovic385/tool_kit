@@ -9,12 +9,12 @@
                 <h1>
                     <?php echo Translate_helper::translate('Login'); ?>
                 </h1>
-                <div id="submitLoginErrors"></div>
+                <div id="<?php echo $mainMsgContainerId; ?>"></div>
                 <form
                     id="accountLoginForm"
                     method="POST"
                     onsubmit="return false"
-                    action="<?php echo $baseUrl; ?>/account_login"
+                    action="<?php echo $baseUrl; ?>account_login"
                     >
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">
@@ -57,6 +57,11 @@
                         value="<?php echo Translate_helper::translate('Login'); ?>"
                         >
                 </form>
+                <div>
+                    <a href="<?php echo $baseUrl . 'reset_password'; ?>">
+                        <?php echo Translate_helper::translate('Reset password'); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -84,6 +84,7 @@ abstract class BaseController extends Controller
     protected function setResponse(
         array $models = [],
         array $data = [],
+        string $customMessage = '',
         null|bool $status = null,
         null|int $successMsgCode = null,
         null|int $errorMsgCode = null
@@ -92,8 +93,8 @@ abstract class BaseController extends Controller
 
         if (is_bool($status)) $this->ctrlResponse['status'] = intval($status);
         if (!empty($data)) $this->ctrlResponse['data'] = $data;
-        if (!empty($successMsgCode)) $this->pushSuccessMessageId($successMsgCode);
-        if (!empty($errorMsgCode)) $this->pushErrorMessageId($errorMsgCode);
+        if (!empty($successMsgCode)) $this->pushSuccessMessageId($successMsgCode, $customMessage );
+        if (!empty($errorMsgCode)) $this->pushErrorMessageId($errorMsgCode, $customMessage );
 
         $this->ctrlResponse['messages'] = $this->getMessages($models);
 
@@ -120,7 +121,7 @@ abstract class BaseController extends Controller
     {
         $data['view'] = $this->getView();
         $data['area'] = $this->getArea();
-        $data['title'] = $this->getArea();
+        $data['title'] = $this->getTitle();
         $data['baseUrl'] = base_url();
         $data['assestFile'] = $this->getAssestFile();
         $data['csrfHeader'] = csrf_header();

@@ -15,9 +15,9 @@
         private string $warningTypeMessage   = 'warning';
         private string $errorTypeMessages    = 'danger';
 
-        private function pushMessageCodeInMessages(string $type, int $messageCode): void
+        private function pushMessageCodeInMessages(string $type, int $messageCode, string $message = ''): void
         {
-            $message = Message_helper::getMessage($messageCode);
+            $message = Message_helper::getMessage($messageCode, $message);
 
             array_push(
                 $this->messages,
@@ -30,27 +30,27 @@
             return;
         }
 
-        public function pushInfoMessageId(int $messageCode): void
+        public function pushInfoMessageId(int $messageCode, string $message = ''): void
         {
-            $this->pushMessageCodeInMessages($this->infoTypeMessage, $messageCode);
+            $this->pushMessageCodeInMessages($this->infoTypeMessage, $messageCode, $message);
             return;
         }
 
-        public function pushSuccessMessageId(int $messageCode): void
+        public function pushSuccessMessageId(int $messageCode, string $message = ''): void
         {
-            $this->pushMessageCodeInMessages($this->successTypeMessage, $messageCode);
+            $this->pushMessageCodeInMessages($this->successTypeMessage, $messageCode, $message);
             return;
         }
 
-        public function pushWarningMessageId(int $messageCode): void
+        public function pushWarningMessageId(int $messageCode, string $message = ''): void
         {
-            $this->pushMessageCodeInMessages($this->warningTypeMessage, $messageCode);
+            $this->pushMessageCodeInMessages($this->warningTypeMessage, $messageCode, $message);
             return;
         }
 
-        public function pushErrorMessageId(int $messageCode): void
+        public function pushErrorMessageId(int $messageCode, string $message = ''): void
         {
-            $this->pushMessageCodeInMessages($this->errorTypeMessages, $messageCode);
+            $this->pushMessageCodeInMessages($this->errorTypeMessages, $messageCode, $message);
             return;
         }
 

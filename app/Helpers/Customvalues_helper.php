@@ -13,5 +13,6 @@
         // custom values
         public static $MIN_PHONE_LENGTH = 8;
         public static $MIN_PASSWORD_LENGTH = 8;
+        public static $RESET_PASSWORD_LINK_TIME = 20;
 
     }

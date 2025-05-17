@@ -31,7 +31,7 @@ class Logout extends BaseController
         return $this->assestFile;
     }
 
-    public function index(): string|object
+    public function index(): object
     {
         session_destroy();
 
