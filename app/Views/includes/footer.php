@@ -37,5 +37,17 @@
                 <?php
             }
         ?>
+
+        <?php
+            if (!empty($_SESSION['ctrlResponse'])) {
+                ?>
+                <script>
+                    let ctrlResponse = JSON.parse('<?php echo $_SESSION['ctrlResponse']; ?>');
+                    Utility.displayResponseMessagges(ctrlResponse['messages']);
+                </script>
+                <?php
+                unset($_SESSION['ctrlResponse']);
+            }
+        ?>
     </body>
 </html>

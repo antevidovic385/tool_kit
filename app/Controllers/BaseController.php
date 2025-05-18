@@ -103,7 +103,7 @@ abstract class BaseController extends Controller
 
     protected function setResponseInSession(): void
     {
-        $_SESSION['ctrlResponse'] = $this->ctrlResponse;
+        $_SESSION['ctrlResponse'] = $this->encodeResponse();
 
         return;
     }
