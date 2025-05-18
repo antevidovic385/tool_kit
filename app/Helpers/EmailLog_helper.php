@@ -101,4 +101,19 @@
             return ($errors === 0);
         }
 
+        public static function updateOppenedEmail(EmailLogModel $emailLog): bool
+        {
+            $table = $emailLog->getThisTable();
+            $where = [
+                $table . '.imgPixel' => $emailLog->imgPixel,
+                $table . '.openned' => '0',
+            ];
+            $data = [
+                $table . '.openned' => '1',
+                $table . '.opennedAt' => date('Y-m-d H:i:s')
+            ];
+
+            return $emailLog->customUpdate($data, $where);
+        }
+
     }

@@ -9,18 +9,18 @@
     use App\Helpers\Jwt_helper;
     use App\Helpers\Customvalues_helper;
     use App\Helpers\Utility_helper;
+    // use App\Helpers\Translate_helper;
 
     class Email_helper
     {
 
         private static function sendEmail(string $email, string $subject, string $message): bool
         {
-            // TO DO TRANSLATE SUBJECT
-            // TO DO IMG PIXEL IN MSG
-            $imgPixel = self::getImgPixel(($email . $subject));
-            $sent = true;
+            $imagePixel = self::getImgPixel(($email . $subject));
+            $message .= self::imagePixel($imagePixel);
+            $sent = true; // TO DO SEE BUILT IN CI FUNCTION
 
-            self::logEmail($email, $subject, $message, $imgPixel, $sent);
+            self::logEmail($email, $subject, $message, $imagePixel, $sent);
 
             return $sent;
         }
@@ -31,6 +31,14 @@
 
             return $imgPixel;
         }
+
+        private static function imagePixel(string $imagePixel): string
+        {
+            $src = base_url() . 'imagepixel/' . $imagePixel;
+
+            return '<img src="' . $src . '" width="1" height="1">';
+        }
+
 
         private static function logEmail(string $email, string $subject, string $message, string $imgPixel, bool $sent): void
         {

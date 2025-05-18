@@ -29,6 +29,9 @@ $routes->post('/save_new_password/(:any)', 'SaveNewPassword::saveNewPassword/$1'
 // Logout
 $routes->get('/logout', 'Logout::index');
 
+// Imagepixel
+$routes->get('/imagepixel/(:any)', 'Imagepixel::index/$1');
+
 $routes->group('/admin', static function ($routes) {
     $routes->get('dashboard', 'Dashboard::index');
 });

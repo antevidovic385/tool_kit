@@ -79,4 +79,9 @@
             return $this->select($filter);
         }
 
+        public function customUpdate(array $data, array $where): bool
+        {
+            return $this->updateCustom($data, $where);
+        }
+
     }
