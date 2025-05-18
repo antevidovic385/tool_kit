@@ -35,7 +35,7 @@ class Logout extends BaseController
     {
         session_destroy();
 
-        return redirect()->redirect('login');
+        return redirect()->redirect(base_url() . 'login');
     }
 
 }

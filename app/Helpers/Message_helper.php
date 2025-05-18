@@ -47,6 +47,8 @@
         public static int $INVALID_EMAIL_OPENNED = 1029;
         public static int $INVALID_EMAIL_OPENNEDAT = 1030;
         public static int $INVALID_EMAIL_CREATED = 1031;
+        public static int $ACCOUNT_ACTIVATED = 1032;
+        public static int $ACCOUNT_NOT_ACTIVATED = 1033;
 
         public static function getMessage(int $messageCode, string $message = ''): string
         {
@@ -95,7 +97,9 @@
                 self::$INVALID_EMAIL_SENT               => 'Invalid email sent value',
                 self::$INVALID_EMAIL_OPENNED            => 'Invalid email openned value',
                 self::$INVALID_EMAIL_OPENNEDAT          => 'Invalid email openned at datetime',
-                self::$INVALID_EMAIL_CREATED            => 'Invalid email created datetime'
+                self::$INVALID_EMAIL_CREATED            => 'Invalid email created datetime',
+                self::$ACCOUNT_ACTIVATED                => 'Account activated',
+                self::$ACCOUNT_NOT_ACTIVATED            => 'Account not activated'
             ];
 
             return trim($messages[$messageCode] . ' ' . $message);

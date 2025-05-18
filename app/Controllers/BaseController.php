@@ -101,6 +101,13 @@ abstract class BaseController extends Controller
         return;
     }
 
+    protected function setResponseInSession(): void
+    {
+        $_SESSION['ctrlResponse'] = $this->ctrlResponse;
+
+        return;
+    }
+
     protected function encodeResponse(): string
     {
         $this->setCsrfData();

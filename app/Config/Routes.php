@@ -32,6 +32,9 @@ $routes->get('/logout', 'Logout::index');
 // Imagepixel
 $routes->get('/imagepixel/(:any)', 'Imagepixel::index/$1');
 
+// Activateaccount
+$routes->get('/activate_account/(:any)', 'Activateaccount::index/$1');
+
 $routes->group('/admin', static function ($routes) {
     $routes->get('dashboard', 'Dashboard::index');
 });

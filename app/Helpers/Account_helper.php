@@ -189,4 +189,14 @@
 
             return Email_helper::sendActivationLink($account);
         }
+
+        public static function activateAccount(AccountModel $account): bool
+        {
+            $data = [
+                'active' => '1'
+            ];
+
+            return $account->save($data);
+        }
+
     }
