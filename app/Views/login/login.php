@@ -62,6 +62,11 @@
                         <?php echo Translate_helper::translate('Reset password'); ?>
                     </a>
                 </div>
+                <div>
+                    <a href="<?php echo $baseUrl . 'registration'; ?>">
+                        <?php echo Translate_helper::translate('Create account'); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

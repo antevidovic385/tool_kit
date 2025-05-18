@@ -35,6 +35,18 @@
         public static int $RESET_PASSWORD_EMAIL_SENT = 1017;
         public static int $RESET_PASSWORD_LINK_USED = 1018;
         public static int $RESET_PASSWORD_LINK_EXPIRED = 1019;
+        public static int $EMAIL_SUBJECT_IS_MANDATORY = 1020;
+        public static int $EMAIL_MESSAGE_IS_MANDATORY = 1021;
+        public static int $EMAIL_IMG_PIXEL_IS_MANDATORY = 1022;
+        public static int $EMAIL_SENT_IS_MANDATORY = 1023;
+        public static int $INVALID_ACCOUNT_ID = 1024;
+        public static int $INVALID_EMAIL_SUBJECT = 1025;
+        public static int $INVALID_EMAIL_MESSAGE = 1026;
+        public static int $INVALID_EMAIL_IMG_PIXES = 1027;
+        public static int $INVALID_EMAIL_SENT = 1028;
+        public static int $INVALID_EMAIL_OPENNED = 1029;
+        public static int $INVALID_EMAIL_OPENNEDAT = 1030;
+        public static int $INVALID_EMAIL_CREATED = 1031;
 
         public static function getMessage(int $messageCode, string $message = ''): string
         {
@@ -72,6 +84,18 @@
                                                             . 'minutes.',
                 self::$RESET_PASSWORD_LINK_USED         => 'Reset password link already used. Go back to reset password page and require new link',
                 self::$RESET_PASSWORD_LINK_EXPIRED      => 'Reset password link expired. Go back to reset password page and require new link',
+                self::$EMAIL_SUBJECT_IS_MANDATORY       => 'Subject is mandatory',
+                self::$EMAIL_MESSAGE_IS_MANDATORY       => 'Email message is mandatory',
+                self::$EMAIL_IMG_PIXEL_IS_MANDATORY     => 'Image pixel is mandatory',
+                self::$EMAIL_SENT_IS_MANDATORY          => 'Email sent is mandatory',
+                self::$INVALID_ACCOUNT_ID               => 'Invalid account id',
+                self::$INVALID_EMAIL_SUBJECT            => 'Invalid email subject',
+                self::$INVALID_EMAIL_MESSAGE            => 'Invalid email message',
+                self::$INVALID_EMAIL_IMG_PIXES          => 'Invalid email image pixel',
+                self::$INVALID_EMAIL_SENT               => 'Invalid email sent value',
+                self::$INVALID_EMAIL_OPENNED            => 'Invalid email openned value',
+                self::$INVALID_EMAIL_OPENNEDAT          => 'Invalid email openned at datetime',
+                self::$INVALID_EMAIL_CREATED            => 'Invalid email created datetime'
             ];
 
             return trim($messages[$messageCode] . ' ' . $message);

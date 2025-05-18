@@ -28,6 +28,7 @@ class Form {
     }
 
     static validateFormData(form) {
+        return true;
         let countErrors = 0;
         let elements = Array.from(form.querySelectorAll('[data-validate-element]'));
 
