@@ -86,7 +86,20 @@ class ResetPassword extends BaseController
             return false;
         }
 
+        if ($data['active'] === '0') {
+            $this->pushErrorMessageId(Message_helper::$ACCOUNT_NOT_ACTIVE);
+            $this->sendActivationEmail($data['id']);
+            return false;
+        }
+
         return Email_helper::sendResetPasswordLink($data);
+    }
+
+    private function sendActivationEmail(int $accountId): void
+    {
+        Account_helper::sendActivationEmail($accountId);
+
+        return;
     }
 
 }

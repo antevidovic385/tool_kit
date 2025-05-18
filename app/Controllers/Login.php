@@ -63,7 +63,7 @@ class Login extends BaseController
         } elseif ($data['softDeleted'] === '1') {
             $this->setResponse(status: false, errorMsgCode: Message_helper::$NOT_ALLOWED);
         } elseif ($data['active'] === '0') {
-            $this->setResponse(status: false, errorMsgCode: Message_helper::$ACCOUNT_NOT_ACTIVE_LOGIN);
+            $this->setResponse(status: false, errorMsgCode: Message_helper::$ACCOUNT_NOT_ACTIVE);
             $this->sendActivationEmail($data['id']);
         }  else {
             $this->setResponse(status: false, errorMsgCode: Message_helper::$CHECK_PASSWORD_LOGIN);
@@ -75,10 +75,7 @@ class Login extends BaseController
 
     private function sendActivationEmail(int $accountId): void
     {
-        $account = new AccountModel($accountId);
-        $account->set();
-
-        Email_helper::sendActivationLink($account);
+        Account_helper::sendActivationEmail($accountId);
 
         return;
     }

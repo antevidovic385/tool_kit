@@ -30,7 +30,7 @@
         public static int $INVALID_COUNTY_PHONE_CODE  = 1012;
         public static int $INVALID_PHONE_NUMBER = 1013;
         public static int $UNKNOWN_ACCOUNT_EMAIL = 1014;
-        public static int $ACCOUNT_NOT_ACTIVE_LOGIN = 1015;
+        public static int $ACCOUNT_NOT_ACTIVE = 1015;
         public static int $CHECK_PASSWORD_LOGIN = 1016;
         public static int $RESET_PASSWORD_EMAIL_SENT = 1017;
         public static int $RESET_PASSWORD_LINK_USED = 1018;
@@ -76,7 +76,7 @@
                 self::$INVALID_EMAIL                    => 'Email is not valid',
                 self::$INVALID_PHONE_NUMBER             => 'Phone number is not valid',
                 self::$UNKNOWN_ACCOUNT_EMAIL            => 'No account with this email',
-                self::$ACCOUNT_NOT_ACTIVE_LOGIN         => 'Account is not active. We sent you an email with activation link',
+                self::$ACCOUNT_NOT_ACTIVE         => 'Account is not active. We sent you an email with activation link',
                 self::$CHECK_PASSWORD_LOGIN             => 'Failed! Please check your password',
                 self::$RESET_PASSWORD_EMAIL_SENT        => 'We sent you an email with a link to reset a password. '
                                                             . 'Link will expire in '

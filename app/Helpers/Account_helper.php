@@ -182,4 +182,11 @@
             return $data ? self::mapData($data[0]) : [];
         }
 
+        public static function sendActivationEmail(int $accountId): bool
+        {
+            $account = new AccountModel($accountId);
+            $account->set();
+
+            return Email_helper::sendActivationLink($account);
+        }
     }
