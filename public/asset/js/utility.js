@@ -117,6 +117,7 @@ class Utility {
 
         if (Array.isArray(displayMessages) && displayMessages.length) {
 
+            console.dir(displayMessages);
             displayMessages.forEach(messageInfo => {
                 let alerMessageClass = `alert-${messageInfo['type']}`;
                 let message = messageInfo['message'];

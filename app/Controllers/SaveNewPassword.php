@@ -17,6 +17,8 @@ class SaveNewPassword extends BaseController
     private string $view = 'saveNewPassword/saveNewPassword';
     private string $assestFile = 'saveNewPassword/saveNewPassword';
 
+    private AccountModel $account;
+
     protected function getArea(): string
     {
         return $this->area;
@@ -39,14 +41,25 @@ class SaveNewPassword extends BaseController
 
     public function index($jwt): string
     {
-        return $this->renderPage(['jwt' => $jwt]);
+        if ($this->validateLink($jwt)) {
+            return $this->renderPage(['jwt' => $jwt]);
+        }
+
+        $this->setResponse(status: false);
+        $this->setResponseInSession();
+
+        return $this->renderPage();
     }
 
     public function saveNewPassword($jwt): void
     {
         $post = $this->getRequestPost();
 
-        if ($this->validatePost($post) && $this->updatePassword($jwt, $post['password'])) {
+        if (
+            $this->validatePost($post)
+            && $this->validateLink($jwt)
+            && $this->updatePassword($post['password'])
+        ) {
             $message = 'Go to login page and login in to your account';
             $this->setResponse(status: true, successMsgCode: Message_helper::$SAVED, customMessage: $message);
         } else {
@@ -69,11 +82,20 @@ class SaveNewPassword extends BaseController
         return ($errors === 0);
     }
 
-    private function updatePassword(string $jwt, string $password): bool
+    private function validateLink(string $jwt): bool
     {
+        if (empty($jwt)) {
+            $this->pushErrorMessageId(Message_helper::$NOT_ALLOWED);
+            return false;
+        }
+
         $data = Jwt_helper::decode($jwt);
 
-        if (empty($data['expire']) || empty($data['account']) || !Validate_helper::validatePositiveInteger($data['account']['id'])) {
+        if (
+            empty($data['expire'])
+            || empty($data['account'])
+            || !Validate_helper::validatePositiveInteger($data['account']['id'])
+        ) {
             $this->pushErrorMessageId(Message_helper::$NOT_ALLOWED);
             return false;
         }
@@ -83,15 +105,22 @@ class SaveNewPassword extends BaseController
             return false;
         }
 
-        $acount = new AccountModel($data['account']['id']);
-        $acount->set();
+        $this->account = new AccountModel($data['account']['id']);
+        $this->account->set();
 
-        if ($data['account']['password'] !== $acount->password) {
+        if ($data['account']['password'] !== $this->account->password) {
             $this->pushErrorMessageId(Message_helper::$RESET_PASSWORD_LINK_USED);
             return false;
         }
 
-        return $acount->save(['password' => $password]);
+        return true;
+    }
+
+    private function updatePassword(string $password): bool
+    {
+
+
+        return $this->account->save(['password' => $password]);
     }
 
 }

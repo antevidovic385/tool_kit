@@ -10,7 +10,9 @@ function submitSaveNewPasswordFormResponse(response) {
 export function subnitSaveNewPasswordForm() {
     let form = document.getElementById('saveNewPasswordForm');
 
-    Form.submitFormEvent(form, null, submitSaveNewPasswordFormResponse);
+    if (Utility.isElementExistsInDom(form)) {
+        Form.submitFormEvent(form, null, submitSaveNewPasswordFormResponse);
+    }
 
     return;
 }

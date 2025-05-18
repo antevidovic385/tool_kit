@@ -8,7 +8,9 @@ function submitResetPasswordFormResponse(response) {
 export function submitResetPasswordForm() {
     let form = document.getElementById('resetPassword');
 
-    Form.submitFormEvent(form, null, submitResetPasswordFormResponse);
+    if (Utility.isElementExistsInDom(form)) {
+        Form.submitFormEvent(form, null, submitResetPasswordFormResponse);
+    }
 
     return;
 }
