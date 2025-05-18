@@ -8,6 +8,7 @@ use App\Models\AccountModel;
 use App\Helpers\Account_helper;
 use App\Helpers\Utility_helper;
 use App\Helpers\Message_helper;
+use App\Helpers\Email_helper;
 
 class Login extends BaseController
 {
@@ -63,12 +64,22 @@ class Login extends BaseController
             $this->setResponse(status: false, errorMsgCode: Message_helper::$NOT_ALLOWED);
         } elseif ($data['active'] === '0') {
             $this->setResponse(status: false, errorMsgCode: Message_helper::$ACCOUNT_NOT_ACTIVE_LOGIN);
-            // $this->sendActivationEmail($data); TO DO
+            $this->sendActivationEmail($data['id']);
         }  else {
             $this->setResponse(status: false, errorMsgCode: Message_helper::$CHECK_PASSWORD_LOGIN);
         }
 
         echo $this->encodeResponse([$account]);
+        return;
+    }
+
+    private function sendActivationEmail(int $accountId): void
+    {
+        $account = new AccountModel($accountId);
+        $account->set();
+
+        Email_helper::sendActivationLink($account);
+
         return;
     }
 
